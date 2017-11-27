@@ -1,0 +1,14 @@
+{
+  "name": "react-assignment",
+  "license": "MIT",
+  "version": "1.0.0",
+  "devDependencies": {
+    "body-parser": "^1.18.2",
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
+    "nodemon": "^1.12.1"
+  },
+  "scripts": {
+    "api-server": "node api-server"
+  }
+}
