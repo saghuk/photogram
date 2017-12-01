@@ -12,27 +12,33 @@ const comments = require("./data/comments");
 app.use(compression());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static(path.resolve(__dirname, '../public')))
 
 const port = 8080;
 
 const router = express.Router();
 
+
 app.get("/", (req, res) => {
-  res.json({ status: "api working!!" });
+    res.sendFile(path.resolve(__dirname, '../public', 'index.html'));
+});
+
+app.get("/check", (req, res) => {
+    res.json({ status: "api working!!" });
 });
 
 router.route("/photos").get((req, res) => {
-  res.json(photos);
+    res.json(photos);
 });
 
 router.route("/comments/:photoCode").get((req, res) => {
-  const comment = comments[req.params.photoCode] || [];
-  res.json(comment);
+    const comment = comments[req.params.photoCode] || [];
+    res.json(comment);
 });
 
 // register routes
 app.use("/api", router);
 
 app.listen(port, () => {
-  console.log(`server started on ${port}`);
+    console.log(`server started on ${port}`);
 });

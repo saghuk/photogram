@@ -36,3 +36,4 @@ http://localhost:8080/api/comments/:code - returns comments for a photo identifi
 1. unit tests
 2. code is splitted based on routes, for example "home view" should not contain
    code belonging to "photo view"
+y

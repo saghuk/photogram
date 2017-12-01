@@ -1,0 +1,59 @@
+body {
+    font-family: monospace !important;
+    background-color: #353535
+
+}
+
+.jumbotron {
+    background-image: url("../images/backgroundImage.jpg");
+    text-align: center;
+    color:white;
+}
+
+.imageWidth {
+    width:100%  !important;
+    height:23em !important;
+    cursor: pointer;
+}
+.detailImageWidth {
+    width:100%  !important;
+    height:85vh !important;
+}
+
+.imageWidth:hover {
+   background-color: grey;
+   opacity: 0.6;
+}
+
+.fontWeight {
+    font-weight: 900;
+}
+
+.heart{
+    width:1.2em
+}
+.comment{
+    color:#ff0000
+}
+
+.padding0 {
+    padding:0 !important
+}
+
+.margin2 {
+    margin-top:2em !important
+}
+
+.margin15 {
+    margin-top:30px
+}
+.commentBox{
+    border-bottom: 2px solid #e8e8e8;
+    border-top: 2px solid #e8e8e8;
+}
+
+.footer-copyright{
+    background-color: black;
+    color:white;
+    text-align: center
+}
