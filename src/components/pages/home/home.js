@@ -15,7 +15,7 @@ class Home extends React.Component{
         console.log(image.code);
         this.props.setImage(image);
         this.props.imageComments(image.code);
-        this.props.history.push(`/photoView/${image.code}`)
+        this.props.history.push(`/photoView?id=${image.code}`)
     }
     render(){
         const imageList = this.props.imageList.map((elem)=>{
@@ -25,21 +25,21 @@ class Home extends React.Component{
         })
         return(
             <div>
-                <div class="container-fluid padding0">
-                    <div class="jumbotron">
+                <div className="container-fluid padding0">
+                    <div className="jumbotron">
                        <h1>Welcome to Photogram</h1> 
                     </div>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12">
                             {imageList}
                         </div>
                     </div>
                 </div>
-                <footer class="margin15">
-                    <div class="footer-copyright">
-                        <div class="container-fluid">
+                <footer className="margin15">
+                    <div className="footer-copyright">
+                        <div className="container-fluid">
                             © 2017 Copyright: Sagar Hukkeri 
                         </div>
                     </div>

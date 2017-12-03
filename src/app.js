@@ -1,9 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import Home from './components/pages/home/home';
-import PhotoView from './components/pages/photoView/photoView';
-// import {Router, Route, IndexRoute, browserHistory} from 'react-router'
-import { BrowserRouter as Router, Route, Link, Switch ,HashRouter} from 'react-router-dom'
+import { BrowserRouter, Route, Link, Switch ,HashRouter} from 'react-router-dom'
 
 import thunk from 'redux-thunk'
 
@@ -12,23 +9,22 @@ import {createLogger} from 'redux-logger'
 import {createStore,applyMiddleware} from 'redux';
 import reducers from './reducers/index';
 import {homeGetImages} from './actions/homeAction';
+// import Home from './components/pages/home/home';
+import Menu from './main';
 
-
-
-
+import {routes} from './routes';
 const middleware=applyMiddleware(thunk,createLogger());
-const store = createStore(reducers,middleware);
- 
+const initialState = window.INITIAL_STATE;
+const store = createStore(reducers,initialState,middleware);
+console.log(store);
 let app = document.getElementById('app');
 
 const Routes = (
   <Provider store={store}>
-     <HashRouter>
-        <Switch>
-          <Route exact path='/' component={Home}/>
-          <Route path='/photoView/:id' component={PhotoView}/>
-        </Switch>
-        </HashRouter>
+    <BrowserRouter>
+      <Menu/>
+    </BrowserRouter>
+   
  </Provider>
 )
 

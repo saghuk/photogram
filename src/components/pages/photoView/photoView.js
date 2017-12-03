@@ -11,27 +11,27 @@ class PhotoView extends React.Component {
         console.log(this.props);
         const image = this.props.setImage;
         const commentList = this.props.comments.map((elem,index)=>{
-            return  <p key={index}><span class="fontWeight">{elem.user} </span>{elem.text}</p>
+            return  <p key={index}><span className="fontWeight">{elem.user} </span>{elem.text}</p>
         })
         return (
-            <div class="container">
-                    <div class="row">
-                        <div class="col-md-10 col-md-offset-1">
-                            <div class="panel panel-default margin2">
-                                <div class="panel-body">
-                                    <div class="col-md-9 padding0">
-                                       <img class="detailImageWidth" src={image.display_src} alt={image.caption}/> 
+            <div className="container">
+                    <div className="row">
+                        <div className="col-md-10 col-md-offset-1">
+                            <div className="panel panel-default margin2">
+                                <div className="panel-body">
+                                    <div className="col-md-9 padding0">
+                                       <img className="detailImageWidth" src={image.display_src} alt={image.caption}/> 
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="col-md-12">
-                                            <button onClick={this.close.bind(this)} type="button" class="close" aria-label="Close">
+                                    <div className="col-md-3">
+                                        <div className="col-md-12">
+                                            <button onClick={this.close.bind(this)} type="button" className="close" aria-label="Close">
                                              <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <h5 class="comment fontWeight">{image.caption}</h5>
-                                        <p> <span><img class="heart" src="./assets/images/Heart.png" /> </span>{image.likes}</p>
-                                        <div class="col-md-12 padding0 commentBox">
-                                            <h5 class="fontWeight">Comments({commentList.length})-</h5>
+                                        <h5 className="comment fontWeight">{image.caption}</h5>
+                                        <p> <span><img className="heart" src="./assets/images/Heart.png" /> </span>{image.likes}</p>
+                                        <div className="col-md-12 padding0 commentBox">
+                                            <h5 className="fontWeight">Comments({commentList.length})-</h5>
                                              {commentList}   
                                         </div>
                                     </div>
