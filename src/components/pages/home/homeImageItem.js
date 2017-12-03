@@ -1,8 +1,13 @@
-"use strict"
+/**Component - Home Image Component
+ * Description - Child component of home page that shows image.
+ * Author - Sagar Hukkeri 
+ */
 
+"use strict"
+/**Set Imports */
 import React from 'react';
 
-
+/**HomeImageItem class to export */
 class HomeImageItem extends React.Component{
     render(){
         return(

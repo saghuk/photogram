@@ -1,3 +1,8 @@
+/*clientServer - Initializes client server for server side rendering
+ * Description - Shares routes between server and client
+ * Author - Sagar Hukkeri 
+ */
+
 require('babel-register')({
     "presets": ["es2015", "react", "stage-1"]
 })
@@ -29,14 +34,6 @@ const router = express.Router();
 app.set('view engine', 'ejs');
 
 app.use(requestHandler);
-
-// app.get("/", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, '../public', 'index.html'));
-// });
-
-app.get("/check", (req, res) => {
-    res.json({ status: "app working!!" });
-});
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");

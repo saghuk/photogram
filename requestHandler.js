@@ -1,5 +1,11 @@
-"use strict"
+/**Middleware - Request Handler
+ * Description - Intercepts client request for page,
+ * sets state and sends rendered page alon with data to the browser
+ * Author - Sagar Hukkeri 
+ */
 
+"use strict"
+/**Sets imports */
 import axios from 'axios';
 import React from 'react';
 import {Provider} from 'react-redux';
@@ -13,7 +19,7 @@ import reducers from './src/reducers/index';
 import routes from './src/routes';
 const queryString = require('query-string');
 
-
+/**function to identify request and set data accordingly*/
 function handleRender(req, res) {
   // console.log(req);
   const routes =[
@@ -37,8 +43,9 @@ function handleRender(req, res) {
   }
   const match = routes.reduce((acc,route)=>matchPath(urlParse,{path:route,exact:true})||acc,null)
   console.log(match,'thismatch');
-    
-    //console.log(req, res);
+    if(match!= null)
+    {
+    console.log('in');
     axios.get('http://localhost:8080/api/photos')
         .then(function(response) {
           imageList = response.data;
@@ -55,7 +62,12 @@ function handleRender(req, res) {
                   })
                   .catch(function(err) {
                       console.log('Initial Server-side rendering error', err);
+                      sendPage([],{},[],'/notFound',res);
+
                   })
+                }
+                else{
+                  sendPage(imageList,{},[],'/notFound',res);
                 }
               }     
               else{
@@ -63,10 +75,15 @@ function handleRender(req, res) {
               }
         })
         .catch(function(err) {
-            console.log('Initial Server-side rendering error', err);
+          sendPage([],{},[],'/notFound',res);
         })
+      }
+      else {
+        sendPage([],{},[],'/notFound',res);
+      }
 }
 
+/**function to render page to string and send to browser according to the data set*/
 function sendPage(imageList,imageData,commentData,url,res){
   const store = createStore(reducers, 
     {"imageList":{"imageList":imageList},

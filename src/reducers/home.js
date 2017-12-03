@@ -1,3 +1,9 @@
+/**Reducer - Reducers Redux
+ * Description - Reducer function for each of the action to set state in store 
+ * Author - Sagar Hukkeri 
+ */
+
+/**Sets the state for imageList*/
 export function homeReducer (state={imageList:[]}, action){
     switch(action.type){
     case "GETIMAGELIST":
@@ -6,8 +12,8 @@ export function homeReducer (state={imageList:[]}, action){
     }
     return state
    }
-
-   export function detailImage (state={setImage:{},comments:[]}, action){
+/**Sets the state for selected image based on action type*/
+export function detailImage (state={setImage:{},comments:[]}, action){
     switch(action.type){
     case "SETIMAGE":
     return {...state,setImage:{...action.payload}}
@@ -19,5 +25,5 @@ export function homeReducer (state={imageList:[]}, action){
     break;
     }
     return state
-   }
+}
 

@@ -1,6 +1,13 @@
+/**Action - Action Emitter Redux
+ * Description - Sets actions for redux and react to work on store
+ * Author - Sagar Hukkeri 
+ */
+
 'use strict'
+/**Set Imports */
 import axios from 'axios';
 
+/**Action to get main page imagelist */
 export function homeGetImages() {
     return function(dispatch) {
         console.log('in');
@@ -18,6 +25,7 @@ export function homeGetImages() {
     }
 }
 
+/**Action to set image selected on mainpage */
 export function setImage(image) {
     return {
         type: "SETIMAGE",
@@ -25,6 +33,7 @@ export function setImage(image) {
     }
 }
 
+/**Action to get comments of the image selected on mainpage */
 export function imageComments(id) {
     return function(dispatch) {
         console.log('in');

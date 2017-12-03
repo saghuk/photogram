@@ -3853,7 +3853,13 @@ function verifyPlainObject(value, displayName, methodName) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/**Action - Action Emitter Redux
+ * Description - Sets actions for redux and react to work on store
+ * Author - Sagar Hukkeri 
+ */
 
+
+/**Set Imports */
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -3868,6 +3874,7 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**Action to get main page imagelist */
 function homeGetImages() {
     return function (dispatch) {
         console.log('in');
@@ -3880,6 +3887,7 @@ function homeGetImages() {
     };
 }
 
+/**Action to set image selected on mainpage */
 function setImage(image) {
     return {
         type: "SETIMAGE",
@@ -3887,6 +3895,7 @@ function setImage(image) {
     };
 }
 
+/**Action to get comments of the image selected on mainpage */
 function imageComments(id) {
     return function (dispatch) {
         console.log('in');
@@ -4177,6 +4186,13 @@ module.exports = Cancel;
 
 "use strict";
 
+
+/**Main Js - Route configuration and main component
+ * Description - Shares routes between server and client
+ * Author - Sagar Hukkeri 
+ */
+
+/**Set Imports */
 "use stict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4198,6 +4214,10 @@ var _home2 = _interopRequireDefault(_home);
 var _photoView = __webpack_require__(60);
 
 var _photoView2 = _interopRequireDefault(_photoView);
+
+var _notFound = __webpack_require__(147);
+
+var _notFound2 = _interopRequireDefault(_notFound);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4227,7 +4247,8 @@ var Menu = function (_React$Component) {
                     _reactRouterDom.Switch,
                     null,
                     _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _home2.default }),
-                    _react2.default.createElement(_reactRouterDom.Route, { path: '/photoView', component: _photoView2.default })
+                    _react2.default.createElement(_reactRouterDom.Route, { path: '/photoView', component: _photoView2.default }),
+                    _react2.default.createElement(_reactRouterDom.Route, { component: _notFound2.default })
                 )
             );
         }
@@ -4244,7 +4265,14 @@ exports.default = Menu;
 
 "use strict";
 
+/**Component - Home page
+ * Description- Create Home page component to render the main page.
+ * Author - Sagar Hukkeri 
+ */
+
 "use stict";
+
+/**Set imports */
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -4274,6 +4302,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+/**Home Component connected to actions and store */
 var Home = function (_React$Component) {
     _inherits(Home, _React$Component);
 
@@ -4374,7 +4403,13 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/**Component - Photo View page
+ * Description - Renders a photo page to show the selected photo in fullpage and its comments. Connected to the store.
+ * Author - Sagar Hukkeri 
+ */
 
+
+/**Set Imports */
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -4396,6 +4431,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+/**Exports class for PhotoView */
 var PhotoView = function (_React$Component) {
     _inherits(PhotoView, _React$Component);
 
@@ -4549,17 +4585,27 @@ var _main = __webpack_require__(58);
 
 var _main2 = _interopRequireDefault(_main);
 
-var _routes = __webpack_require__(147);
+var _routes = __webpack_require__(148);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import Home from './components/pages/home/home';
 var middleware = (0, _redux.applyMiddleware)(_reduxThunk2.default, (0, _reduxLogger.createLogger)());
+/**Get initial state set by server in window */
+/**App - Starting point for react app
+ * Description - Sets the starting point for react app
+ * Author - Sagar Hukkeri 
+ */
+
+/**Set Imports */
 var initialState = window.INITIAL_STATE;
+/**Create store based on initial state reducer and middleware */
 var store = (0, _redux.createStore)(_index2.default, initialState, middleware);
 console.log(store);
+/**Element in index page where react app will be rendered */
 var app = document.getElementById('app');
 
+/**Initial route setup wrapped by redux provider */
 var Routes = _react2.default.createElement(
   _reactRedux.Provider,
   { store: store },
@@ -26590,19 +26636,26 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/**Reducer - Combine Reducers Redux
+ * Description - Combines all the reducers into one to use in react app
+ * Author - Sagar Hukkeri 
+ */
 
+
+/** Set imports */
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _redux = __webpack_require__(14);
 
 var _home = __webpack_require__(126);
 
+/**Exports combined reducer */
 exports.default = (0, _redux.combineReducers)({
-    imageList: _home.homeReducer,
-    setImage: _home.detailImage
+  imageList: _home.homeReducer,
+  setImage: _home.detailImage
 });
 
 /***/ }),
@@ -26613,7 +26666,7 @@ exports.default = (0, _redux.combineReducers)({
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -26623,33 +26676,39 @@ exports.detailImage = detailImage;
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
+/**Reducer - Reducers Redux
+ * Description - Reducer function for each of the action to set state in store 
+ * Author - Sagar Hukkeri 
+ */
+
+/**Sets the state for imageList*/
 function homeReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { imageList: [] };
-  var action = arguments[1];
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { imageList: [] };
+    var action = arguments[1];
 
-  switch (action.type) {
-    case "GETIMAGELIST":
-      return _extends({}, state, { imageList: [].concat(_toConsumableArray(action.payload)) });
-      break;
-  }
-  return state;
+    switch (action.type) {
+        case "GETIMAGELIST":
+            return _extends({}, state, { imageList: [].concat(_toConsumableArray(action.payload)) });
+            break;
+    }
+    return state;
 }
-
+/**Sets the state for selected image based on action type*/
 function detailImage() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { setImage: {}, comments: [] };
-  var action = arguments[1];
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { setImage: {}, comments: [] };
+    var action = arguments[1];
 
-  switch (action.type) {
-    case "SETIMAGE":
-      return _extends({}, state, { setImage: _extends({}, action.payload)
-        // return state.setimage=action.payload
-      });break;
-    case "GETIMAGECOMMENTS":
-      return _extends({}, state, { comments: [].concat(_toConsumableArray(action.payload))
-        // return state.setimage=action.payload
-      });break;
-  }
-  return state;
+    switch (action.type) {
+        case "SETIMAGE":
+            return _extends({}, state, { setImage: _extends({}, action.payload)
+                // return state.setimage=action.payload
+            });break;
+        case "GETIMAGECOMMENTS":
+            return _extends({}, state, { comments: [].concat(_toConsumableArray(action.payload))
+                // return state.setimage=action.payload
+            });break;
+    }
+    return state;
 }
 
 /***/ }),
@@ -27547,7 +27606,13 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/**Component - Home Image Component
+ * Description - Child component of home page that shows image.
+ * Author - Sagar Hukkeri 
+ */
 
+
+/**Set Imports */
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -27567,6 +27632,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+/**HomeImageItem class to export */
 var HomeImageItem = function (_React$Component) {
     _inherits(HomeImageItem, _React$Component);
 
@@ -27598,6 +27664,78 @@ exports.default = HomeImageItem;
 
 "use strict";
 
+/**Component - Not found Page
+ * Description - Renders a not found page if route is not defined.
+ * Author - Sagar Hukkeri 
+ */
+
+"use stict";
+
+/**Set Imports */
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**Class NotFound to export */
+var NotFound = function (_React$Component) {
+    _inherits(NotFound, _React$Component);
+
+    function NotFound() {
+        _classCallCheck(this, NotFound);
+
+        return _possibleConstructorReturn(this, (NotFound.__proto__ || Object.getPrototypeOf(NotFound)).apply(this, arguments));
+    }
+
+    _createClass(NotFound, [{
+        key: "render",
+        value: function render() {
+
+            return _react2.default.createElement(
+                "div",
+                null,
+                _react2.default.createElement(
+                    "div",
+                    { className: "container-fluid padding0" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "jumbotron" },
+                        _react2.default.createElement(
+                            "h1",
+                            null,
+                            "Sorry, page is unavailable"
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return NotFound;
+}(_react2.default.Component);
+
+exports.default = NotFound;
+
+/***/ }),
+/* 148 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -27625,25 +27763,8 @@ var _reactRouterDom = __webpack_require__(17);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// const Status = function ({ code, children }){
-//   return (
-//         <Route render={function({ staticContext }) {
-//           if (staticContext)
-//             staticContext.status = code
-//           return children
-//         }}/>
-//     )
-// }
-// //NOT-FOUND COMPONENT
-// const NotFound = function(){
-//     return (
-//       <Status code={404}>
-//         <div>
-//           <h2> Sorry, cannot find this page</h2>
-//         </div>
-//       </Status>
-//     )
-// }
+/** NOT USED MIGHT BE USED LATER
+ */
 
 var routes = _react2.default.createElement(
   _reactRouterDom.Switch,

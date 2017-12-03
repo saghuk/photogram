@@ -1,11 +1,18 @@
+/**Component - Home page
+ * Description- Create Home page component to render the main page.
+ * Author - Sagar Hukkeri 
+ */
+
 "use stict"
+
+/**Set imports */
 import React from 'react';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import HomeImageItem from './homeImageItem'
 import {setImage,homeGetImages,imageComments} from '../../../actions/homeAction'
 
-
+/**Home Component connected to actions and store */
 class Home extends React.Component{
     componentDidMount(){
         this.props.homeGetImages();

@@ -1,8 +1,15 @@
-"use strict"
+/**Component - Photo View page
+ * Description - Renders a photo page to show the selected photo in fullpage and its comments. Connected to the store.
+ * Author - Sagar Hukkeri 
+ */
 
+
+"use strict"
+/**Set Imports */
 import React from 'react';
 import {connect} from 'react-redux'
 
+/**Exports class for PhotoView */
 class PhotoView extends React.Component {
     close(){
         this.props.history.push("/")
