@@ -1,63 +1,48 @@
-body {
-    font-family: monospace !important;
-    background-color: #353535
-}
+* {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+*:before,*:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+body { font-family: monospace !important; background-color: #353535; margin:0px;padding:0px; }
+footer { margin-top: 30px; }
+.row { margin-right: -15px; margin-left: -15px; }
+.column-3, .column-4, .column-9,  .column-10, .column-12 { position: relative; min-height: 1px; padding-right: 15px; padding-left: 15px;  }  
+.heading { font-size: 3em; }
+.jumbotron { background-image: url("../images/backgroundImage.jpg"); text-align: center; color: white; }
+.imageWidth { width: 100% !important; height: 23em !important; cursor: pointer; }
+.detailImageWidth { width: 100% !important; height: 85vh !important; }
+.imageWidth:hover { background-color: grey; opacity: 0.6; }
+.fontWeight { font-weight: 900; }
+.heart { width: 1.2em }
+.comment { color: #ff0000; }
+.paddingzero { padding: 0 !important; }
+.margintop { margin-top: 2em !important; }
+.commentBox { border-bottom: 2px solid #e8e8e8; border-top: 2px solid #e8e8e8; overflow: auto; height: 65vh; }
+.footer-copyright { background-color: black; color: white; text-align: center; padding: 15px 0px;  }
+.headersection { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; }
+.headersection .jumbotron { padding-right: 15px; padding-left: 15px; border-radius: 6px; }
+.headersection .jumbotron { padding-right: 60px; padding-left: 60px; }
+.headersection:before, .headersection:after, { display: table; content: " "; }
+.headersection:after, .row:after, { clear: both; }
+.jumbotron { padding-top: 3em; padding-bottom: 3em; }
+.gridlayout { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; }
+.row {margin-right: -15px; margin-left: -15px; }
+.row:before,.row:after{ display: table; content: " "; }
+.row:after{ clear: both; }
+.supplycontainer{ display: flex;  margin: 10px 0; }
+.earthingtdiv { flex: 0 0 20%; display: flex; flex-direction: column; margin: 0 5px; padding: 0 5px; }
+.gridlayout { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; }
+.panel { margin-bottom: 20px; background-color: #fff; border: 1px solid transparent; border-radius: 4px; -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05); box-shadow: 0 1px 1px rgba(0, 0, 0, .05);  }
+.panel-body { padding: 15px; }
+.close { background: transparent; border: none; font-size: 1.5em; cursor: pointer; outline: none; }
+.text-right { text-align: right; }
+.panel-body:before,.panel-body:after { display: table; content: " "; }
+.pager:after, .panel-body:after { clear: both; }
+.headersection { padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto;}
 
-.jumbotron {
-    background-image: url("../images/backgroundImage.jpg");
-    text-align: center;
-    color: white;
-}
-
-.imageWidth {
-    width: 100% !important;
-    height: 23em !important;
-    cursor: pointer;
-}
-
-.detailImageWidth {
-    width: 100% !important;
-    height: 85vh !important;
-}
-
-.imageWidth:hover {
-    background-color: grey;
-    opacity: 0.6;
-}
-
-.fontWeight {
-    font-weight: 900;
-}
-
-.heart {
-    width: 1.2em
-}
-
-.comment {
-    color: #ff0000
-}
-
-.padding0 {
-    padding: 0 !important
-}
-
-.margin2 {
-    margin-top: 2em !important
-}
-
-.margin15 {
-    margin-top: 30px
-}
-
-.commentBox {
-    border-bottom: 2px solid #e8e8e8;
-    border-top: 2px solid #e8e8e8;
-    overflow: auto;
-    height: 65vh;
-}
-
-.footer-copyright {
-    background-color: black;
-    color: white;
-    text-align: center
-}
+  /*********************************MEDIA QUERIES***********************************/
+  @media (min-width: 768px) { .gridlayout { width: 750px; } }
+  @media (min-width: 992px) { .gridlayout { width: 970px; } }
+  @media (min-width: 1200px) { .gridlayout { width: 1170px; } }
+  @media (min-width: 992px) { .column-3,.column-4,  .column-9, .column-10, .column-12 { float: left; } .column-12 { width: 100%; } .column-10 { width: 83.33333333%; } .column-9 { width: 75%; } .column-4 { width: 33.33333333%; } .column-3 { width: 25%; } .column-offset-1 { margin-left: 8.33333333%; }}
+  @media (min-width: 992px) { .column-offset-1 { margin-left: 8.33333333%; } }
+  @media (min-width: 768px) { .gridlayout { width: 750px; } }
+  @media (min-width: 992px) { .gridlayout { width: 970px; } }
+  @media (min-width: 1200px) { .gridlayout { width: 1170px; } }
