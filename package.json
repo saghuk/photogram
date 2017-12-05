@@ -11,7 +11,8 @@
     "webpack": "^3.8.1"
   },
   "scripts": {
-    "api-server": "node api-server"
+    "api-server": "node api-server",
+    "start": "concurrently --kill-others \"node api-server\" \"node ./client-server/clientApp\" \"webpack\""
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -24,6 +25,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
+    "concurrently": "^3.5.1",
     "ejs": "^2.5.7",
     "http-proxy": "^1.16.2",
     "query-string": "^5.0.1",

@@ -5,28 +5,15 @@ Open terminal and run.
 npm install 
 ```
 
-and then run webpack to create bundle file
+and then run
 
 ```
-webpack 
+npm run start
 ```
 
-
-Open new terminal and run.
-```
-npm run api-server
-```
-
-runs the api server.<br> Open [http://localhost:8080](http://localhost:8080) to
+runs the api server webpack and client server together.<br> Open [http://localhost:3000](http://localhost:3000) to
 view it in the browser.
 
-
-Open new terminal and run.
-```
-npm ./client-server/clientApp.js
-```
-runs the client server.<br> Open [http://localhost:3000](http://localhost:3000) to
-view it in the browser.
 
 ## endpoints
 
